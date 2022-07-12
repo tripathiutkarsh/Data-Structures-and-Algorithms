@@ -9,6 +9,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.util.Convertor.convertPayload;
 
 class MinimumMovesToEqualArrayElementsTest {
     // Ref: https://www.baeldung.com/parameterized-tests-junit-5
@@ -21,16 +22,4 @@ class MinimumMovesToEqualArrayElementsTest {
         assertEquals(Integer.parseInt(expectedOutput), MinimumMovesToEqualArrayElements.minMoves(nums));
     }
 
-    private int[] convertPayload(String payload) {
-        String[] stringArray = payload.split(",");
-        // declaring an array with the size of string
-        int[] arr = new int[stringArray.length];
-        // parsing the String argument as a signed decimal
-        // integer object and storing that integer into the
-        // array
-        for (int i = 0; i < stringArray.length; i++) {
-            arr[i] = Integer.valueOf(stringArray[i]);
-        }
-        return arr;
-    }
 }
