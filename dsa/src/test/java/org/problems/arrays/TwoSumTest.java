@@ -27,4 +27,13 @@ class TwoSumTest {
         int[] expectedOutput = convertPayload(expectedOutputStr);
         assertArrayEquals(expectedOutput, TwoSum.twoSumUsingMap(Integer.parseInt(target), nums));
     }
+
+    @ParameterizedTest
+    @CsvSource(value = {"9:0,1:2,7,11,15", "6:1,2:3,2,4", "6:0,1:3,3"}, delimiter = ':')
+    @DisplayName("Testing 1. Two Sum (Using Array)")
+    void twoSumUsingArray(String target, String expectedOutputStr, String payload) {
+        int[] nums = convertPayload(payload);
+        int[] expectedOutput = convertPayload(expectedOutputStr);
+        assertArrayEquals(expectedOutput, TwoSum.twoSumUsingArray(Integer.parseInt(target), nums));
+    }
 }

@@ -1,5 +1,6 @@
 package org.problems.arrays;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,4 +30,23 @@ public class TwoSum {
             }
         return result;
     }
-}
+    public static int[] twoSumUsingArray(int target, int[] nums){
+        int[] result = new int[2];
+
+        // Calculate maximum element
+        int max = Integer.MIN_VALUE;
+        for (int i=0; i< nums.length;i++)
+            max = nums[i] > max ? nums[i] : max;
+
+        int[] vault = new int[max+1];
+        Arrays.fill(vault, Integer.MIN_VALUE);
+        for (int i=0; i<nums.length; i++){
+            if (vault[nums[i]]==Integer.MIN_VALUE)
+                vault[Math.abs(target-nums[i])] = i;
+            else {
+                result[0] = vault[nums[i]];
+                result[1] = i;
+            }
+        }
+        return result;
+    }}
